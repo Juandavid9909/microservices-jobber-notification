@@ -11,5 +11,5 @@ npm i pino-pretty
 
 npm i -D @types/email-templates @types/express @types/amqplib @types/nodemailer
 
-npm install @juandavid9909/jobber-shared@0.1.0
+npm install @juandavid9909/jobber-shared@0.1.3
 ```
