@@ -28,14 +28,6 @@ export const startQueues = async (): Promise<void> => {
 
   await consumeAuthEmailMessages(emailChannel);
   await consumeOrderEmailMessages(emailChannel);
-
-  await emailChannel.assertExchange("jobber-email-notification", "direct");
-  const message = JSON.stringify({ name: "jobber", service: "notification service" });
-  emailChannel.publish("jobber-email-notification", "auth-email", Buffer.from(message));
-
-  await emailChannel.assertExchange("jobber-order-notification", "direct");
-  const orderMessage = JSON.stringify({ name: "jobber", service: "order notification service" });
-  emailChannel.publish("jobber-order-notification", "order-email", Buffer.from(orderMessage));
 };
 
 const startElasticSearch = (): void => {
