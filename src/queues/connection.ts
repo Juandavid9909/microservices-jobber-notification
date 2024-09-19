@@ -3,11 +3,11 @@ import { Logger } from "winston";
 import { winstonLogger } from "@juandavid9909/jobber-shared";
 import client, { Channel, Connection } from "amqplib";
 
-const log: Logger = winstonLogger(`${ config.ELASTIC_SEARCH_URL }`, "notificationQueueConnection", "debug");
+const log: Logger = winstonLogger(`${config.ELASTIC_SEARCH_URL}`, "notificationQueueConnection", "debug");
 
 export const createConnection = async (): Promise<Channel | undefined> => {
   try {
-    const connection: Connection = await client.connect(`${ config.RABBITMQ_ENDPOINT }`);
+    const connection: Connection = await client.connect(`${config.RABBITMQ_ENDPOINT}`);
     const channel: Channel = await connection.createChannel();
 
     log.info("Notification server connected to queue succesfully...");

@@ -3,7 +3,7 @@ import { emailTemplates } from "@notifications/helpers";
 import { IEmailLocals, winstonLogger } from "@juandavid9909/jobber-shared";
 import { Logger } from "winston";
 
-const log: Logger = winstonLogger(`${ config.ELASTIC_SEARCH_URL }`, "mailTransport", "debug");
+const log: Logger = winstonLogger(`${config.ELASTIC_SEARCH_URL}`, "mailTransport", "debug");
 
 export const sendEmail = async (template: string, receiverEmail: string, locals: IEmailLocals): Promise<void> => {
   try {

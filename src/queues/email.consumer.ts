@@ -5,12 +5,12 @@ import { IEmailLocals, winstonLogger } from "@juandavid9909/jobber-shared";
 import { Logger } from "winston";
 import { sendEmail } from "@notifications/queues/mail.transport";
 
-const log: Logger = winstonLogger(`${ config.ELASTIC_SEARCH_URL }`, "emailConsumer", "debug");
+const log: Logger = winstonLogger(`${config.ELASTIC_SEARCH_URL}`, "emailConsumer", "debug");
 
 export const consumeAuthEmailMessages = async (channel: Channel): Promise<void> => {
   try {
-    if(!channel) {
-      channel = await createConnection() as Channel;
+    if (!channel) {
+      channel = (await createConnection()) as Channel;
     }
 
     const exchangeName = "jobber-email-notification";
@@ -26,7 +26,7 @@ export const consumeAuthEmailMessages = async (channel: Channel): Promise<void> 
     channel.consume(jobberQueue.queue, async (msg: ConsumeMessage | null) => {
       const { receiverEmail, username, verifyLink, resetLink, template } = JSON.parse(msg!.content.toString());
       const locals: IEmailLocals = {
-        appLink: `${ config.CLIENT_URL }`,
+        appLink: `${config.CLIENT_URL}`,
         appIcon: "https://i.ibb.co/Kyp2m0t/cover.png",
         username,
         verifyLink,
@@ -44,8 +44,8 @@ export const consumeAuthEmailMessages = async (channel: Channel): Promise<void> 
 
 export const consumeOrderEmailMessages = async (channel: Channel): Promise<void> => {
   try {
-    if(!channel) {
-      channel = await createConnection() as Channel;
+    if (!channel) {
+      channel = (await createConnection()) as Channel;
     }
 
     const exchangeName = "jobber-order-notification";
@@ -87,7 +87,7 @@ export const consumeOrderEmailMessages = async (channel: Channel): Promise<void>
       } = JSON.parse(msg!.content.toString());
 
       const locals: IEmailLocals = {
-        appLink: `${ config.CLIENT_URL }`,
+        appLink: `${config.CLIENT_URL}`,
         appIcon: "https://i.ibb.co/Kyp2m0t/cover.png",
         username,
         sender,
@@ -115,7 +115,7 @@ export const consumeOrderEmailMessages = async (channel: Channel): Promise<void>
 
       await sendEmail(template, receiverEmail, locals);
 
-      if(template === "orderPlaced") {
+      if (template === "orderPlaced") {
         await sendEmail("orderReceipt", receiverEmail, locals);
       }
 

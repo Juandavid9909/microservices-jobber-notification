@@ -6,7 +6,7 @@ import { Logger } from "winston";
 import Email from "email-templates";
 import nodemailer, { Transporter } from "nodemailer";
 
-const log: Logger = winstonLogger(`${ config.ELASTIC_SEARCH_URL }`, "mailTransportHelper", "debug");
+const log: Logger = winstonLogger(`${config.ELASTIC_SEARCH_URL}`, "mailTransportHelper", "debug");
 
 export const emailTemplates = async (template: string, receiver: string, locals: IEmailLocals): Promise<void> => {
   try {
@@ -21,7 +21,7 @@ export const emailTemplates = async (template: string, receiver: string, locals:
 
     const email: Email = new Email({
       message: {
-        from: `Jobber App <${ config.SENDER_EMAIL }>`
+        from: `Jobber App <${config.SENDER_EMAIL}>`
       },
       send: true,
       preview: false,

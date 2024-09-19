@@ -4,10 +4,10 @@ import { config } from "@notifications/config";
 import { Logger } from "winston";
 import { winstonLogger } from "@juandavid9909/jobber-shared";
 
-const log: Logger = winstonLogger(`${ config.ELASTIC_SEARCH_URL }`, "notificationElasticSearchServer", "debug");
+const log: Logger = winstonLogger(`${config.ELASTIC_SEARCH_URL}`, "notificationElasticSearchServer", "debug");
 
 const elasticSearchClient = new Client({
-  node: `${ config.ELASTIC_SEARCH_URL }`,
+  node: `${config.ELASTIC_SEARCH_URL}`,
   auth: {
     username: config.ELASTIC_USERNAME!,
     password: config.ELASTIC_PASSWORD!
@@ -17,11 +17,11 @@ const elasticSearchClient = new Client({
 export const checkConnection = async (): Promise<void> => {
   let isConnected = false;
 
-  while(!isConnected) {
+  while (!isConnected) {
     try {
       const health: ClusterHealthResponse = await elasticSearchClient.cluster.health({});
 
-      log.info(`NotificationService Elasticsearch health status - ${ health.status }`);
+      log.info(`NotificationService Elasticsearch health status - ${health.status}`);
 
       isConnected = true;
     } catch (error) {

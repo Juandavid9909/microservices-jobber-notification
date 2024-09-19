@@ -3,7 +3,6 @@ import dotenv from "dotenv";
 dotenv.config({});
 
 class Config {
-
   public NODE_ENV: string | undefined;
   public CLIENT_URL: string | undefined;
   public SENDER_EMAIL: string | undefined;
