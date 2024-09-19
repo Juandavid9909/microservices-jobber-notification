@@ -14,4 +14,8 @@ npm i -D @types/email-templates @types/express @types/amqplib @types/nodemailer
 npm install @juandavid9909/jobber-shared@0.1.3
 
 npm i -D jest ts-jest @jest/types @types/jest
+
+npm i fs-extra
+
+npm i --save-dev @types/fs-extra
 ```
