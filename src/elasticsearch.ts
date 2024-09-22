@@ -9,8 +9,8 @@ const log: Logger = winstonLogger(`${config.ELASTIC_SEARCH_URL}`, "notificationE
 const elasticSearchClient = new Client({
   node: `${config.ELASTIC_SEARCH_URL}`,
   auth: {
-    username: config.ELASTIC_USERNAME!,
-    password: config.ELASTIC_PASSWORD!
+    username: `${config.ELASTIC_USERNAME}`,
+    password: `${config.ELASTIC_PASSWORD}`
   }
 });
 
