@@ -6,9 +6,7 @@ COPY tsconfig.json ./
 COPY .npmrc ./
 COPY src ./src
 COPY tools ./tools
-RUN ls -a
-
-RUN npm install && npm install -g nodemon
+RUN ls -a && npm install && npm install -g nodemon
 
 EXPOSE 4001
 
