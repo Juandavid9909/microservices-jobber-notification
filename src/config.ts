@@ -13,14 +13,14 @@ class Config {
   public ELASTIC_PASSWORD: string | undefined;
 
   constructor() {
-    this.NODE_ENV = process.env.NODE_ENV || "";
-    this.CLIENT_URL = process.env.CLIENT_URL || "";
-    this.SENDER_EMAIL = process.env.SENDER_EMAIL || "";
-    this.SENDER_EMAIL_PASSWORD = process.env.SENDER_EMAIL_PASSWORD || "";
-    this.RABBITMQ_ENDPOINT = process.env.RABBITMQ_ENDPOINT || "";
-    this.ELASTIC_SEARCH_URL = process.env.ELASTIC_SEARCH_URL || "";
-    this.ELASTIC_USERNAME = process.env.ELASTIC_USERNAME || "";
-    this.ELASTIC_PASSWORD = process.env.ELASTIC_PASSWORD || "";
+    this.NODE_ENV = process.env.NODE_ENV ?? "";
+    this.CLIENT_URL = process.env.CLIENT_URL ?? "";
+    this.SENDER_EMAIL = process.env.SENDER_EMAIL ?? "";
+    this.SENDER_EMAIL_PASSWORD = process.env.SENDER_EMAIL_PASSWORD ?? "";
+    this.RABBITMQ_ENDPOINT = process.env.RABBITMQ_ENDPOINT ?? "";
+    this.ELASTIC_SEARCH_URL = process.env.ELASTIC_SEARCH_URL ?? "";
+    this.ELASTIC_USERNAME = process.env.ELASTIC_USERNAME ?? "";
+    this.ELASTIC_PASSWORD = process.env.ELASTIC_PASSWORD ?? "";
   }
 }
 
