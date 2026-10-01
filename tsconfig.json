@@ -22,9 +22,10 @@
     "allowSyntheticDefaultImports": true,
     "pretty": true,
     "resolveJsonModule": true,
-    "jsx": "react-jsx",
-    "noEmitOnError": true,
-    "target": "es2021"
+    "plugins": [{ "transform": "typescript-transform-paths" }, { "transform": "typescript-transform-paths", "afterDeclarations": true }],
+    "paths": {
+      "@notifications/*": ["src/*"]
+    }
   },
   "include": ["src"],
   "exclude": ["node_modules"]
