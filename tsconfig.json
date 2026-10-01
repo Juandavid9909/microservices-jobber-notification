@@ -5,7 +5,6 @@
     "importHelpers": true,
     "lib": ["dom", "esnext"],
     "module": "esnext",
-    "baseUrl": ".",
     "outDir": "./build",
     "rootDir": ".",
     "strict": true,
@@ -24,7 +23,7 @@
     "resolveJsonModule": true,
     "plugins": [{ "transform": "typescript-transform-paths" }, { "transform": "typescript-transform-paths", "afterDeclarations": true }],
     "paths": {
-      "@notifications/*": ["src/*"]
+      "@notifications/*": ["./src/*"]
     }
   },
   "include": ["src"],
