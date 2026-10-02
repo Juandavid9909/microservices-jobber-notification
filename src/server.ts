@@ -6,6 +6,7 @@ import http from "http";
 
 import { checkConnection } from "@notifications/elasticsearch";
 import { config } from "@notifications/config";
+import { createConnection } from "@notifications/queues/connection";
 import { healthRoutes } from "@notifications/routes";
 
 const SERVER_PORT: number = 4001;
@@ -20,7 +21,9 @@ export const start = (app: Application): void => {
   startElasticSearch();
 };
 
-const startQueues = async (): Promise<void> => {};
+const startQueues = async (): Promise<void> => {
+  createConnection();
+};
 
 const startElasticSearch = (): void => {
   checkConnection();
