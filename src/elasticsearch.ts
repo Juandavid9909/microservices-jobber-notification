@@ -1,7 +1,7 @@
 import { Client } from "@elastic/elasticsearch";
 import { Logger } from "winston";
 import { winstonLogger } from "@Juandavid9909/jobber-shared";
-import type { ClusterHealthHealthResponseBody } from "@elastic/elasticsearch/lib/api/types";
+import type { ClusterHealthResponse } from "@elastic/elasticsearch/lib/api/types";
 
 import { config } from "@notifications/config";
 
@@ -16,7 +16,7 @@ export const checkConnection = async (): Promise<void> => {
 
   while (!isConnected) {
     try {
-      const health: ClusterHealthHealthResponseBody = await elasticSearchClient.cluster.health({});
+      const health: ClusterHealthResponse = await elasticSearchClient.cluster.health({});
 
       log.info(`NotificationService Elasticsearch health status - ${health.status}`);
 

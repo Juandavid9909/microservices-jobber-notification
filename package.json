@@ -10,7 +10,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "devDependencies": {
     "@types/amqplib": "^0.10.8",
     "@types/email-templates": "^10.0.4",
@@ -28,7 +27,7 @@
   },
   "dependencies": {
     "@elastic/elasticsearch": "^9.5.1",
-    "@Juandavid9909/jobber-shared": "^0.0.2",
+    "@Juandavid9909/jobber-shared": "^0.0.6",
     "amqplib": "^2.2.0",
     "dotenv": "^18.0.5",
     "ejs": "^3.1.10",
