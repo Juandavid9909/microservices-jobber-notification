@@ -5,12 +5,16 @@ import { winstonLogger } from "@Juandavid9909/jobber-shared";
 import http from "http";
 
 import { config } from "@notifications/config";
+import { healthRoutes } from "@notifications/routes";
 
 const SERVER_PORT: number = 4001;
 const log: Logger = winstonLogger(`${config.ELASTIC_SEARCH_URL}`, "notificationServer", "debug");
 
 export const start = (app: Application): void => {
   startServer(app);
+
+  app.use("", healthRoutes);
+
   startQueues();
   startElasticSearch();
 };
