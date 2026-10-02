@@ -4,6 +4,7 @@ import { Logger } from "winston";
 import { winstonLogger } from "@Juandavid9909/jobber-shared";
 import http from "http";
 
+import { checkConnection } from "@notifications/elasticsearch";
 import { config } from "@notifications/config";
 import { healthRoutes } from "@notifications/routes";
 
@@ -21,7 +22,9 @@ export const start = (app: Application): void => {
 
 const startQueues = async (): Promise<void> => {};
 
-const startElasticSearch = (): void => {};
+const startElasticSearch = (): void => {
+  checkConnection();
+};
 
 const startServer = (app: Application): void => {
   try {

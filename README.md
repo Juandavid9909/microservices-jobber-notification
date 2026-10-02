@@ -4,7 +4,7 @@
 # Librerías de producción.
 
 ```bash
-npm i typescript typescript-transform-paths pino-pretty express express-async-errors amqplib dotenv ejs email-templates http-status-codes nodemailer winston
+npm i typescript typescript-transform-paths pino-pretty express express-async-errors amqplib dotenv ejs email-templates http-status-codes nodemailer winston @elastic/elasticsearch
 ```
 
 # Librerías del ambiente de desarrollo.
